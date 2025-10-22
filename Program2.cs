@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Program
 {
@@ -6,7 +6,6 @@ class Program
     {
         Console.WriteLine("Вычисление интеграла двумя КФ: правые прямоугольники и трапеций\n");
 
-        // --- Ввод данных напрямую ---
         Console.WriteLine("Выберите функцию:");
         Console.WriteLine("1) x^2");
         Console.WriteLine("2) sin(x)");
@@ -27,17 +26,16 @@ class Program
         // Начальное число разбиений
         int n = 2;
 
-        // ---- Правые прямоугольники ----
-        Console.WriteLine("\n\t Метод правых прямоугольников.");
-        ComputeWithRunge(a, b, fnum, eps, n, "right");
 
-        // ---- Трапеции ----
+        Console.WriteLine("\n\t Метод правых прямоугольников.");
+        ComputeWithRunge(a, b, fnum, eps, n, "rp");
+
+
         Console.WriteLine("\n\t Метод трапеций.");
         ComputeWithRunge(a, b, fnum, eps, n, "trap");
 
     }
 
-    // === Основные методы ===
     static double Func(double x, int fnum)
     {
         if (fnum == 1) return x * x;
@@ -74,19 +72,19 @@ class Program
     static void ComputeWithRunge(double a, double b, int fnum, double eps, int n, string method)
     {
         Console.WriteLine();
-        if (method == "right")
+        if (method == "r")
             Console.WriteLine("\t Метод правых прямоугольников.");
         else
             Console.WriteLine("\t Метод трапеций.");
 
         // Определяем порядок точности метода:
         int p;
-        if (method == "right") p = 1;
+        if (method == "rp") p = 1;
         else p = 2;
 
         // Вычисляем первый интеграл при n разбиениях
         double I1;
-        if (method == "right")
+        if (method == "rp")
             I1 = RightRectangles(a, b, n, fnum);
         else
             I1 = Trapezoid(a, b, n, fnum);
@@ -94,11 +92,11 @@ class Program
         // Цикл уточнения по правилу Рунге
         while (true)
         {
-            int n2 = n * 2; // увеличиваем число разбиений в 2 раза
+            int n2 = n * 2; 
 
-            // Вычисляем интеграл для удвоенного числа разбиений
+            // Для удвоенного числа разбиений
             double I2;
-            if (method == "right")
+            if (method == "rp")
                 I2 = RightRectangles(a, b, n2, fnum);
             else
                 I2 = Trapezoid(a, b, n2, fnum);
@@ -120,17 +118,17 @@ class Program
                 Console.WriteLine($"  Оценка погрешности (Рунге) = {pogreshnost}");
                 Console.WriteLine($"  Шаг h = {h}");
                 Console.WriteLine($"  Количество разбиений n = {n2}");
-                break; // выходим из цикла
+                break; 
             }
 
             // Если точность ещё не достигнута — повторяем с большим n
             n = n2;
             I1 = I2;
 
-            // Ограничение, чтобы не попасть в бесконечный цикл
+           
             if (n > 1_000_000)
             {
-                Console.WriteLine("Слишком много разбиений, вычисления остановлены.");
+                Console.WriteLine("Слишком много разбиений, остановка.");
                 break;
             }
         }
