@@ -1,0 +1,10 @@
+C:\Users\M\source\repos\AVM2\AVM2\bin\Debug\AVM2.exe.config
+C:\Users\M\source\repos\AVM2\AVM2\bin\Debug\AVM2.exe
+C:\Users\M\source\repos\AVM2\AVM2\bin\Debug\AVM2.pdb
+C:\Users\M\source\repos\AVM2\AVM2\obj\Debug\AVM2.csproj.AssemblyReference.cache
+C:\Users\M\source\repos\AVM2\AVM2\obj\Debug\AVM2.Form1.resources
+C:\Users\M\source\repos\AVM2\AVM2\obj\Debug\AVM2.Properties.Resources.resources
+C:\Users\M\source\repos\AVM2\AVM2\obj\Debug\AVM2.csproj.GenerateResource.cache
+C:\Users\M\source\repos\AVM2\AVM2\obj\Debug\AVM2.csproj.CoreCompileInputs.cache
+C:\Users\M\source\repos\AVM2\AVM2\obj\Debug\AVM2.exe
+C:\Users\M\source\repos\AVM2\AVM2\obj\Debug\AVM2.pdb
